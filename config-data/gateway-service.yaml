@@ -17,15 +17,48 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: student-service
-          uri: lb://student-service
+        - id: cliente-service
+          uri: lb://cliente-service
           predicates:
-            - Path=/student/**
-        - id: book-service
-          uri: lb://book-service
+            - Path=/api/clientes/**
+
+        - id: reserva-service
+          uri: lb://reserva-service
           predicates:
-            - Path=/book/**
-        - id: pet-service
-          uri: lb://pet-service
+            - Path=/api/reservas/**
+
+        - id: descuentoFrecuente-service
+          uri: lb://descuentoFrecuente-service
           predicates:
-            - Path=/pet/**
+            - Path=/api/descuento-frecuencia/**
+        
+        - id: descuentoPorCantidad-service
+          uri: lb://descuentoPorCantidad-service
+          predicates:
+            - Path=/api/descuento-personas/**
+        
+        - id: karts-service
+          uri: lb://karts-service
+          predicates:
+            - Path=/api/karts/**
+          
+        - id: rack-service
+          uri: lb://rack-service
+          predicates:
+            - Path=/api/rack-semanal/**
+
+        - id: reporte-service
+          uri: lb://reporte-service
+          predicates:
+            - Path=/api/reportes/**
+
+        - id: tarifaEsp-service
+          uri: lb://tarifaEsp-service
+          predicates:
+            - Path=/api/tarifa-especial/**
+
+        - id: tarifa-service
+          uri: lb://tarifa-service
+          predicates:
+            - Path=/api/tarifas/**
+        
