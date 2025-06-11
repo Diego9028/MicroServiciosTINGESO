@@ -1,14 +1,14 @@
 server:
   port: 8090
-  
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
+      default-zone: http://eureka-service:8761/eureka/
   instance:
-    hostname: localhost
+    prefer-ip-address: true
 
 spring:
   cloud:
@@ -31,17 +31,17 @@ spring:
           uri: lb://descuentoFrecuente-service
           predicates:
             - Path=/api/descuento-frecuencia/**
-        
+
         - id: descuentoPorCantidad-service
           uri: lb://descuentoPorCantidad-service
           predicates:
             - Path=/api/descuento-personas/**
-        
+
         - id: karts-service
           uri: lb://karts-service
           predicates:
             - Path=/api/karts/**
-          
+
         - id: rack-service
           uri: lb://rack-service
           predicates:
@@ -61,4 +61,3 @@ spring:
           uri: lb://tarifa-service
           predicates:
             - Path=/api/tarifas/**
-        
